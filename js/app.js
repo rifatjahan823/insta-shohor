@@ -140,7 +140,6 @@ const createPost = (post) => {
 const showPosts = (posts) => {
     const productsContainer = document.getElementById( "posts" );
     productsContainer.innerHTML = "";
-
     posts.forEach((post) => {
         const div = createPost(post);
         productsContainer.appendChild(div);
@@ -149,6 +148,7 @@ const showPosts = (posts) => {
 
 const displayLikedPosts = () => {
   document.getElementById("according").style.display='none';
+  document.getElementById("title").style.display='none';
   document.getElementById( "liked" ).innerText=""
     const likedPosts = getLikedPosts();
     likedPosts.forEach((post) => {
@@ -159,6 +159,7 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
   document.getElementById("according").style.display='none';
+  document.getElementById("title").style.display='block';
   document.getElementById( "reported").innerText=""
     const reportedPosts = getReportedPosts();
     reportedPosts.forEach((post) => {
