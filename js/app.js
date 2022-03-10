@@ -99,7 +99,6 @@ const createPost = (post) => {
                   
 
                   <div class="post__indicators"></div>
-
                   <button class="post__button post__button--align-right" onclick="reportPost(${
                       post.id
                   })">
@@ -107,7 +106,8 @@ const createPost = (post) => {
                   </button>
                 </div>
 
-                <div class="post__content">${displayContent(post.description)}</div>
+                <div class="post__content">
+                ${displayContent(post.description)}</div>
 
                 <div class="post__infos">
                   <div class="post__likes">
@@ -148,6 +148,7 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
+  document.getElementById("according").style.display='none';
   document.getElementById( "liked" ).innerText=""
     const likedPosts = getLikedPosts();
     likedPosts.forEach((post) => {
@@ -157,7 +158,8 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
-  document.getElementById( "reported" ).innerText=""
+  document.getElementById("according").style.display='none';
+  document.getElementById( "reported").innerText=""
     const reportedPosts = getReportedPosts();
     reportedPosts.forEach((post) => {
         const div = createPost(post);
