@@ -41,13 +41,11 @@ const switchTab = (id) => {
         document.getElementById( "liked" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
         document.getElementById( "according" ).style.display = "block";
-        document.getElementById("title").style.display="none"
     } else if (id === "liked") {
         document.getElementById( "liked" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
         document.getElementById( "according" ).style.display = "none";
-        document.getElementById("title").style.display="none"
 
         displayLikedPosts();
     } 
@@ -56,9 +54,7 @@ const switchTab = (id) => {
         document.getElementById( "reported" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "liked" ).style.display = "none";
-        document.getElementById( "according" ).style.display = "none";
-        document.getElementById("title").style.display="block"
-
+        document.getElementById( "according" ).style.display = "none"
         displayReportedPosts();
     }
 
@@ -107,7 +103,8 @@ const createPost = (post) => {
                   </button>
                   
 
-                  <div class="post__indicators"></div>
+                  <div class="post__indicators">
+                  </div>
                   <button class="post__button post__button--align-right" onclick="reportPost(${
                       post.id
                   })">
@@ -117,7 +114,6 @@ const createPost = (post) => {
 
                 <div class="post__content">
                 ${displayContent(post.description)}</div>
-
                 <div class="post__infos">
                   <div class="post__likes">
                     <a href="#" class="post__likes-avatar">
@@ -166,6 +162,7 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
   document.getElementById( "reported").innerText=""
+  document.getElementById( "reported").innerHTML=`<h1>Reported posts</h1> `
     const reportedPosts = getReportedPosts();
     reportedPosts.forEach((post) => {
         const div = createPost(post);
